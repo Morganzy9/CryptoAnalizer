@@ -19,11 +19,19 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustmoCell
         
+        cell.backgroundColor = UIColor.systemIndigo
+        
         cell.coinImageView.image = UIImage(named: imageArr[indexPath.row])
         
         
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let destinationVC = DetailsVC()
+        destinationVC.title = imageArr[indexPath.row]
+        navigationController?.pushViewController(destinationVC, animated: true)
+        
+    }
 }

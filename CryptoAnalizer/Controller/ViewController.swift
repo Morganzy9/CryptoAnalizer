@@ -22,7 +22,12 @@ class ViewController: UIViewController {
     
     func setUpView() {
         
+        view.backgroundColor = UIColor.white
+        title = "Cryptos"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         setUpCollectionView()
+        
         
         
     }
@@ -35,8 +40,8 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
