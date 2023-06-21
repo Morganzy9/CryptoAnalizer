@@ -19,9 +19,9 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustmoCell
         
-        cell.backgroundColor = UIColor.systemIndigo
-        
         cell.coinImageView.image = UIImage(named: imageArr[indexPath.row])
+        cell.nameLabel.text = "Name: \(imageArr[indexPath.row])"
+        cell.priceLabel.text = "Price: "
         
         
         return cell

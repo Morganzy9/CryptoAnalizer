@@ -17,7 +17,7 @@ class DetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.view.backgroundColor = UIColor.systemIndigo
         
     }
     //    MARK: - FUnction`s
