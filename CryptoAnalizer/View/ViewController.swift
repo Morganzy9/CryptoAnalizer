@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let imageArr = ["cv","cv","cv","cv","cv","cv","cv"]
+    var cryptoArr: [Crypto] = []
     
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
@@ -18,7 +18,24 @@ class ViewController: UIViewController {
         
         setUpView()
         
+        let crypto = CryptoAPI()
+        
+        crypto.fetchCrypto { crypto in
+            
+            self.cryptoArr = crypto
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
+            
+        }
+        
+        
+        
     }
+    
+    
     
     func setUpView() {
         

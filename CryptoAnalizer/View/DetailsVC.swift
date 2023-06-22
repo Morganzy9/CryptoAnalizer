@@ -11,19 +11,22 @@ class DetailsVC: UIViewController {
     
     //    MARK: - Variables
     
+    let selectedId = ""
+    
     
     //    MARK: - UILifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.systemIndigo
+        setUpView()
         
     }
     //    MARK: - FUnction`s
     
     func setUpView() {
         
+        view.backgroundColor = UIColor.white
         
     }
     

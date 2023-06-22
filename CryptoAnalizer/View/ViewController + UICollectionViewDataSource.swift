@@ -11,7 +11,7 @@ extension ViewController: UICollectionViewDataSource {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArr.count
+        return cryptoArr.count
     }
     
     
@@ -19,9 +19,24 @@ extension ViewController: UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustmoCell
         
-        cell.coinImageView.image = UIImage(named: imageArr[indexPath.row])
-        cell.nameLabel.text = "Name: \(imageArr[indexPath.row])"
-        cell.priceLabel.text = "Price: "
+        
+        let cryptoApi = CryptoAPI()
+        
+        if let url = URL(string: String(cryptoArr[indexPath.row].image)) {
+            cryptoApi.downloadImage(from: url) { image in
+                
+                if let image = image {
+                    
+                    cell.coinImageView.image = image
+                    
+                }
+                
+            }
+        }
+        
+        cell.nameLabel.text = "Name: \(String(describing: cryptoArr[indexPath.row].name))"
+        
+        cell.priceLabel.text = "Price: \(cryptoArr[indexPath.row].currentPrice)"
         
         
         return cell
@@ -30,8 +45,13 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let destinationVC = DetailsVC()
-        destinationVC.title = imageArr[indexPath.row]
+        destinationVC.title = cryptoArr[indexPath.row].name
         navigationController?.pushViewController(destinationVC, animated: true)
         
+        
+        
     }
+    
+    
+    
 }
