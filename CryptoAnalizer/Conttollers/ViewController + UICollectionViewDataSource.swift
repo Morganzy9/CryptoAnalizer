@@ -46,6 +46,7 @@ extension ViewController: UICollectionViewDataSource {
         
         let destinationVC = DetailsVC()
         destinationVC.title = cryptoArr[indexPath.row].name
+        destinationVC.selectedCoin = cryptoArr[indexPath.row]
         navigationController?.pushViewController(destinationVC, animated: true)
         
         

@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1603BDA42A42FD8D008B74F9 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1603BDA32A42FD8D008B74F9 /* DetailsView.swift */; };
 		167330812A4304C300DB20DE /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167330802A4304C300DB20DE /* Crypto.swift */; };
 		167330832A4305A900DB20DE /* CryptoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167330822A4305A900DB20DE /* CryptoAPI.swift */; };
+		16D397CC2A458821003D4725 /* CryptoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D397CB2A458821003D4725 /* CryptoDetailsView.swift */; };
 		16E747862A41B49100DC3FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E747852A41B49100DC3FD8 /* AppDelegate.swift */; };
 		16E747882A41B49100DC3FD8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E747872A41B49100DC3FD8 /* SceneDelegate.swift */; };
 		16E7478A2A41B49100DC3FD8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E747892A41B49100DC3FD8 /* ViewController.swift */; };
@@ -22,9 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1603BDA32A42FD8D008B74F9 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		167330802A4304C300DB20DE /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		167330822A4305A900DB20DE /* CryptoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAPI.swift; sourceTree = "<group>"; };
+		16D397CB2A458821003D4725 /* CryptoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailsView.swift; sourceTree = "<group>"; };
 		16E747822A41B49100DC3FD8 /* CryptoAnalizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoAnalizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		16E747852A41B49100DC3FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		16E747872A41B49100DC3FD8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,12 +100,8 @@
 		16E7479B2A41B52400DC3FD8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				16E747892A41B49100DC3FD8 /* ViewController.swift */,
-				16E747A72A41C85000DC3FD8 /* ViewController + UICollectionViewDataSource.swift */,
-				16E747A92A41C88E00DC3FD8 /* ViewController + UICollectionViewDelegate.swift */,
-				16E747AD2A41CDA900DC3FD8 /* DetailsVC.swift */,
 				16E747A12A41B8F900DC3FD8 /* CustmoCell.swift */,
-				1603BDA32A42FD8D008B74F9 /* DetailsView.swift */,
+				16D397CB2A458821003D4725 /* CryptoDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -113,6 +109,10 @@
 		16FC03F42A44B25C0036585F /* Conttollers */ = {
 			isa = PBXGroup;
 			children = (
+				16E747892A41B49100DC3FD8 /* ViewController.swift */,
+				16E747A72A41C85000DC3FD8 /* ViewController + UICollectionViewDataSource.swift */,
+				16E747A92A41C88E00DC3FD8 /* ViewController + UICollectionViewDelegate.swift */,
+				16E747AD2A41CDA900DC3FD8 /* DetailsVC.swift */,
 			);
 			path = Conttollers;
 			sourceTree = "<group>";
@@ -189,11 +189,11 @@
 			files = (
 				16E747AA2A41C88E00DC3FD8 /* ViewController + UICollectionViewDelegate.swift in Sources */,
 				16E747A82A41C85000DC3FD8 /* ViewController + UICollectionViewDataSource.swift in Sources */,
+				16D397CC2A458821003D4725 /* CryptoDetailsView.swift in Sources */,
 				16E7478A2A41B49100DC3FD8 /* ViewController.swift in Sources */,
 				167330832A4305A900DB20DE /* CryptoAPI.swift in Sources */,
 				16E747862A41B49100DC3FD8 /* AppDelegate.swift in Sources */,
 				16E747AE2A41CDA900DC3FD8 /* DetailsVC.swift in Sources */,
-				1603BDA42A42FD8D008B74F9 /* DetailsView.swift in Sources */,
 				16E747A22A41B8F900DC3FD8 /* CustmoCell.swift in Sources */,
 				167330812A4304C300DB20DE /* Crypto.swift in Sources */,
 				16E747882A41B49100DC3FD8 /* SceneDelegate.swift in Sources */,
