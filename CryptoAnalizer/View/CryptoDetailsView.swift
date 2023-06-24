@@ -14,7 +14,7 @@ class CryptoDetailsView: UIView {
     let symbolLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 16.0)
+        lbl.font = UIFont.boldSystemFont(ofSize: 32.0)
         
         return lbl
     }()
@@ -22,7 +22,7 @@ class CryptoDetailsView: UIView {
     let currPriceLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 16.0)
+        lbl.font = UIFont.boldSystemFont(ofSize: 32.0)
         
         return lbl
     }()
@@ -30,7 +30,7 @@ class CryptoDetailsView: UIView {
     let high24Label: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 16.0)
+        lbl.font = UIFont.boldSystemFont(ofSize: 32.0)
         
         return lbl
     }()
@@ -69,21 +69,35 @@ class CryptoDetailsView: UIView {
             symbolLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             symbolLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             symbolLabel.bottomAnchor.constraint(equalTo: currPriceLabel.topAnchor),
-            symbolLabel.heightAnchor.constraint(equalToConstant: 60),
+            symbolLabel.heightAnchor.constraint(equalToConstant: 80),
             
             currPriceLabel.topAnchor.constraint(equalTo: symbolLabel.bottomAnchor),
             currPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             currPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             currPriceLabel.bottomAnchor.constraint(equalTo: high24Label.topAnchor),
-            currPriceLabel.heightAnchor.constraint(equalToConstant: 60),
+            currPriceLabel.heightAnchor.constraint(equalToConstant: 80),
             
             high24Label.topAnchor.constraint(equalTo: currPriceLabel.bottomAnchor),
             high24Label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             high24Label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            high24Label.heightAnchor.constraint(equalToConstant: 60),
+            high24Label.heightAnchor.constraint(equalToConstant: 80),
             
             
         ])
+        
+    }
+    
+}
+
+extension UILabel {
+    
+    func changePartOfTextColor(fullText: String, changeText: String) {
+        
+        let strNumber: NSString = fullText as NSString
+        let range = (strNumber).range(of: changeText)
+        let attribute = NSMutableAttributedString.init(string: fullText)
+        attribute.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.systemGreen , range: range)
+        self.attributedText = attribute
         
     }
     

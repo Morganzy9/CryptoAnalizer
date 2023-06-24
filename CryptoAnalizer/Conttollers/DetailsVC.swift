@@ -25,6 +25,11 @@ class DetailsVC: UIViewController {
         cryptoDetailsView.currPriceLabel.text = "Current Price: \(String(selectedCoin.currentPrice))"
         cryptoDetailsView.high24Label.text = "High 24 hours: \(String(selectedCoin.high24h))"
         
+        guard let currentPrice = cryptoDetailsView.currPriceLabel.text else { return }
+        guard let high24 = cryptoDetailsView.high24Label.text else { return }
+        
+        cryptoDetailsView.currPriceLabel.changePartOfTextColor(fullText: currentPrice, changeText: String(selectedCoin.currentPrice))
+        cryptoDetailsView.high24Label.changePartOfTextColor(fullText: high24, changeText: String(selectedCoin.high24h))
         
         view = cryptoDetailsView
         
