@@ -18,7 +18,7 @@ struct CryptoAPI {
         
         let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
             if let error = error {
-                print("Error fetching Crypto: \(error.localizedDescription)")
+                print("Error fetching Crypto: \(String(describing: error))")
                 return
             }
             
@@ -40,6 +40,66 @@ struct CryptoAPI {
         }
         dataTask.resume()
     }
+//    https://api.coingecko.com/api/v3/coins/bitcoin
+    
+    func fetchCryptoInDetails(selectedCoin: String, complition: @escaping (CryptoDetails?) -> Void) {
+        
+        let configuration = URLSessionConfiguration.default
+        
+        let session = URLSession(configuration: configuration)
+        
+        var urlConstructor = URLComponents()
+
+        urlConstructor.scheme = "https"
+
+        urlConstructor.host = "api.coingecko.com"
+
+        urlConstructor.path = "/api/v3/coins/\(selectedCoin)"
+        
+        guard let url = urlConstructor.url else {
+
+            print("Error in URL: fetchCryptoInDetails")
+
+            return
+        }
+        
+//        guard let url = URL(string: "https://api.coingecko.com/api/v3/coins/\(selectedCoin)") else { return }
+        
+        let task = session.dataTask(with: url) { data, response, error in
+            
+            if let error = error {
+                print("Error fetching Crypto: \(String(describing: error))")
+                return
+            }
+            
+            guard let jsonData = data else {
+                
+                print("Error in jsonData: fetchCryptoInDetails")
+                
+                return
+            }
+            
+            let jsonDecoder = JSONDecoder()
+            
+            do {
+                
+                let decodedData = try jsonDecoder.decode(CryptoDetails.self, from: jsonData)
+                
+                DispatchQueue.main.async {
+                    complition(decodedData)
+                }
+                
+            } catch {
+                
+                print("Error in catch during  fetchCryptoInDetails \(String(describing: error))")
+                
+            }
+            
+            
+        }
+        task.resume()
+    
+    }
     
     func downloadImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
@@ -57,5 +117,5 @@ struct CryptoAPI {
             }
         }.resume()
     }
-    
+        
 }

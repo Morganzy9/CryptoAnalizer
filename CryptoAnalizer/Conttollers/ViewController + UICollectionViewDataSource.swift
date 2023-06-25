@@ -13,6 +13,7 @@ extension ViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return cryptoArr.count
     }
+     
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -46,7 +47,7 @@ extension ViewController: UICollectionViewDataSource {
         
         let destinationVC = DetailsVC()
         destinationVC.title = cryptoArr[indexPath.row].name
-        destinationVC.selectedCoin = cryptoArr[indexPath.row]
+        destinationVC.selectedCoin = cryptoArr[indexPath.row].id
         navigationController?.pushViewController(destinationVC, animated: true)
         
         

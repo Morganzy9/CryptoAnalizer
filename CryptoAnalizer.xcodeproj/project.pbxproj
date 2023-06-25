@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		164623552A489BD500AAF693 /* CryptoDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164623542A489BD500AAF693 /* CryptoDetails.swift */; };
 		167330812A4304C300DB20DE /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167330802A4304C300DB20DE /* Crypto.swift */; };
 		167330832A4305A900DB20DE /* CryptoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 167330822A4305A900DB20DE /* CryptoAPI.swift */; };
 		16D397CC2A458821003D4725 /* CryptoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D397CB2A458821003D4725 /* CryptoDetailsView.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		164623542A489BD500AAF693 /* CryptoDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetails.swift; sourceTree = "<group>"; };
 		167330802A4304C300DB20DE /* Crypto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		167330822A4305A900DB20DE /* CryptoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoAPI.swift; sourceTree = "<group>"; };
 		16D397CB2A458821003D4725 /* CryptoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoDetailsView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				167330802A4304C300DB20DE /* Crypto.swift */,
+				164623542A489BD500AAF693 /* CryptoDetails.swift */,
 				167330822A4305A900DB20DE /* CryptoAPI.swift */,
 			);
 			path = Model;
@@ -197,6 +200,7 @@
 				16E747A22A41B8F900DC3FD8 /* CustmoCell.swift in Sources */,
 				167330812A4304C300DB20DE /* Crypto.swift in Sources */,
 				16E747882A41B49100DC3FD8 /* SceneDelegate.swift in Sources */,
+				164623552A489BD500AAF693 /* CryptoDetails.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

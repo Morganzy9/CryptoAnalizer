@@ -10,10 +10,12 @@ import UIKit
 class DetailsVC: UIViewController {
     
     //    MARK: - Variables
-    var selectedCoin: Crypto!
+    
     private var cryptoDetailsView: CryptoDetailsView!
     
-   
+    var selectedCoin = ""
+    
+    var coinDetailed: CryptoDetails?
     
     //    MARK: - UILifeCycle
 
@@ -21,15 +23,15 @@ class DetailsVC: UIViewController {
         super.loadView()
 
         cryptoDetailsView = CryptoDetailsView()
-        cryptoDetailsView.symbolLabel.text = "Symbol of cion: \(selectedCoin.symbol)"
-        cryptoDetailsView.currPriceLabel.text = "Current Price: \(String(selectedCoin.currentPrice))"
-        cryptoDetailsView.high24Label.text = "High 24 hours: \(String(selectedCoin.high24h))"
+//        cryptoDetailsView.symbolLabel.text = "Symbol of cion: \(coinDetailed?.name)"
+//        cryptoDetailsView.currPriceLabel.text = "Current Price: \(String(selectedCoin.currentPrice))"
+//        cryptoDetailsView.high24Label.text = "High 24 hours: \(String(selectedCoin.high24h))"
         
         guard let currentPrice = cryptoDetailsView.currPriceLabel.text else { return }
         guard let high24 = cryptoDetailsView.high24Label.text else { return }
         
-        cryptoDetailsView.currPriceLabel.changePartOfTextColor(fullText: currentPrice, changeText: String(selectedCoin.currentPrice))
-        cryptoDetailsView.high24Label.changePartOfTextColor(fullText: high24, changeText: String(selectedCoin.high24h))
+//        cryptoDetailsView.currPriceLabel.changePartOfTextColor(fullText: currentPrice, changeText: String(selectedCoin.currentPrice))
+//        cryptoDetailsView.high24Label.changePartOfTextColor(fullText: high24, changeText: String(selectedCoin.high24h))
         
         view = cryptoDetailsView
         
@@ -41,6 +43,8 @@ class DetailsVC: UIViewController {
         
         setUpView()
         
+        print(coinDetailed?.name)
+        
     }
     
 
@@ -49,6 +53,22 @@ class DetailsVC: UIViewController {
     func setUpView() {
         
         view.backgroundColor = UIColor.white
+        
+        let cryptoApi = CryptoAPI()
+        
+        cryptoApi.fetchCryptoInDetails(selectedCoin: selectedCoin) { [weak self] crypto in
+            
+            
+            print(self?.coinDetailed?.name)
+            print(crypto?.name)
+            
+            DispatchQueue.main.async {
+                self?.coinDetailed = crypto
+                self?.loadView()
+            }
+            
+        }
+
         
     }
     

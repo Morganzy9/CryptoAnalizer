@@ -13,24 +13,12 @@ class ViewController: UIViewController {
     
     var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpView()
-        
-        let crypto = CryptoAPI()
-        
-        crypto.fetchCrypto { crypto in
-            
-            self.cryptoArr = crypto
-            
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-            
-            
-        }
-        
         
         
     }
@@ -45,7 +33,18 @@ class ViewController: UIViewController {
         
         setUpCollectionView()
         
+        let crypto = CryptoAPI()
         
+        crypto.fetchCrypto { crypto in
+            
+            self.cryptoArr = crypto
+            
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+            
+            
+        }
         
     }
     
