@@ -59,30 +59,76 @@ class DetailsVC: UIViewController {
     
     func updateLabels() {
         
-        guard let name = coinDetailed?.name else {
+        guard let detailImage = coinDetailed?.image.large else {
             
-            print("Error in label name")
-            
-            return
-        }
-        
-        guard let id = coinDetailed?.id else {
-            
-            print("Error in label id")
+            print("Error in imageView detailImage")
             
             return
         }
         
         guard let symbol = coinDetailed?.symbol else {
             
+            print("Error in label name")
+            
+            return
+        }
+        
+        guard let watchlistPortfolioUsers = coinDetailed?.watchlistPortfolioUsers else {
+            
+            print("Error in label id")
+            
+            return
+        }
+        
+        guard let marketCapRank = coinDetailed?.marketCapRank else {
+            
             print("Error in label symbol")
             
             return
         }
         
-        cryptoDetailsView.symbolLabel.text = "Symbol of coin: \(name)"
-        cryptoDetailsView.currPriceLabel.text = "Current Price: \(id)"
-        cryptoDetailsView.high24Label.text = "High 24 hours: \(symbol)"
+        guard let coingeckoRank = coinDetailed?.coingeckoRank else {
+            
+            print("Error in label coingeckoRank")
+            
+            return
+        }
+        
+        //        Image
+        
+        let crpytoApi = CryptoAPI()
+        
+        if let url = URL(string: detailImage) {
+            
+            crpytoApi.downloadImage(from: url) { [weak self] image in
+                
+                guard let self = self  else { return }
+                
+                if let image = image {
+                    
+                    DispatchQueue.main.async {
+                        self.cryptoDetailsView.detailImage.image = image
+                    }
+                    
+                }
+                
+            }
+            
+        }
+        
+        cryptoDetailsView.symbolLabel.text = "Symbol of coin: \(symbol)"
+        cryptoDetailsView.symbolLabel.changePartOfTextColor(fullText: "Symbol of coin: \(symbol)", changeText: symbol)
+        
+        cryptoDetailsView.watchlistPortfolioUsersLabel.text = "Watch list Portfolio Users: \(watchlistPortfolioUsers)"
+        cryptoDetailsView.watchlistPortfolioUsersLabel.changePartOfTextColor(fullText: "Watch list Portfolio Users: \(watchlistPortfolioUsers)", changeText: String(watchlistPortfolioUsers))
+        
+        cryptoDetailsView.marketCapRankLabel.text = "Market Cap Rank: \(marketCapRank)"
+        cryptoDetailsView.marketCapRankLabel.changePartOfTextColor(fullText: "Market Cap Rank: \(marketCapRank)", changeText: String(marketCapRank))
+        
+        cryptoDetailsView.coingeckoRank.text = "Coingecko Rank: \(coingeckoRank)"
+        cryptoDetailsView.coingeckoRank.changePartOfTextColor(fullText: "Coingecko Rank: \(coingeckoRank)", changeText: String(coingeckoRank))
+        
+        
     }
     
     

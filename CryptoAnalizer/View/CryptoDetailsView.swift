@@ -11,26 +11,85 @@ class CryptoDetailsView: UIView {
     
     //    MARK: - Variables
     
+    let detailImage: UIImageView = {
+        let imageView = UIImageView()
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        
+        return imageView
+    }()
+    
     let symbolLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 32.0)
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
         
         return lbl
     }()
     
-    let currPriceLabel: UILabel = {
+    
+    
+    let             watchlistPortfolioUsersLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 32.0)
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
         
         return lbl
     }()
     
-    let high24Label: UILabel = {
+    let             marketCapRankLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
-        lbl.font = UIFont.boldSystemFont(ofSize: 32.0)
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return lbl
+    }()
+    
+    let coingeckoRank: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return lbl
+    }()
+    
+    let liquidityScore: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return lbl
+    }()
+    
+    let publicInterestScore: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return lbl
+    }()
+    
+    let developerScore: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return lbl
+    }()
+    
+    let coingeckoScore: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
+        
+        return lbl
+    }()
+    
+    let communityScore: UILabel = {
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.font = UIFont.boldSystemFont(ofSize: 20)
         
         return lbl
     }()
@@ -56,35 +115,62 @@ class CryptoDetailsView: UIView {
     //    MARK: - FUnction`s
     
     func setUpView() {
-        
-        
+        addSubview(detailImage)
         addSubview(symbolLabel)
-        addSubview(currPriceLabel)
-        addSubview(high24Label)
+        addSubview(watchlistPortfolioUsersLabel)
+        addSubview(marketCapRankLabel)
+        addSubview(coingeckoRank)
         
+//        MARK: - Constraints
+        
+        
+        let leadingAnchorConstant: CGFloat = 15
+        
+        let heightConstant: CGFloat = 35
         
         NSLayoutConstraint.activate([
             
-            symbolLabel.topAnchor.constraint(equalTo: topAnchor, constant: 200),
-            symbolLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
+//            IMAGE
+            
+            detailImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            detailImage.leadingAnchor.constraint(equalTo: leadingAnchor),
+            detailImage.trailingAnchor.constraint(equalTo: trailingAnchor),
+            detailImage.heightAnchor.constraint(equalToConstant: 125),
+            
+//            SYMBOL label
+            
+            symbolLabel.topAnchor.constraint(equalTo: detailImage.bottomAnchor, constant: 20),
+            symbolLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
             symbolLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            symbolLabel.bottomAnchor.constraint(equalTo: currPriceLabel.topAnchor),
-            symbolLabel.heightAnchor.constraint(equalToConstant: 80),
+            symbolLabel.bottomAnchor.constraint(equalTo: watchlistPortfolioUsersLabel.topAnchor),
+            symbolLabel.heightAnchor.constraint(equalToConstant: heightConstant),
             
-            currPriceLabel.topAnchor.constraint(equalTo: symbolLabel.bottomAnchor),
-            currPriceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            currPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            currPriceLabel.bottomAnchor.constraint(equalTo: high24Label.topAnchor),
-            currPriceLabel.heightAnchor.constraint(equalToConstant: 80),
+//            watchlistPortfolioUsers label
             
-            high24Label.topAnchor.constraint(equalTo: currPriceLabel.bottomAnchor),
-            high24Label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
-            high24Label.trailingAnchor.constraint(equalTo: trailingAnchor),
-            high24Label.heightAnchor.constraint(equalToConstant: 80),
+            watchlistPortfolioUsersLabel.topAnchor.constraint(equalTo: symbolLabel.bottomAnchor),
+            watchlistPortfolioUsersLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            watchlistPortfolioUsersLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            watchlistPortfolioUsersLabel.bottomAnchor.constraint(equalTo: marketCapRankLabel.topAnchor),
+            watchlistPortfolioUsersLabel.heightAnchor.constraint(equalToConstant: heightConstant),
+            
+            
+//            marketCapRank label
+            
+            marketCapRankLabel.topAnchor.constraint(equalTo: watchlistPortfolioUsersLabel.bottomAnchor),
+            marketCapRankLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            marketCapRankLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            marketCapRankLabel.heightAnchor.constraint(equalToConstant: heightConstant),
+            marketCapRankLabel.bottomAnchor.constraint(equalTo: coingeckoRank.topAnchor),
+            
+//            coingeckoRank label
+            
+            coingeckoRank.topAnchor.constraint(equalTo: marketCapRankLabel.bottomAnchor),
+            coingeckoRank.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            coingeckoRank.trailingAnchor.constraint(equalTo: trailingAnchor),
+            coingeckoRank.heightAnchor.constraint(equalToConstant: heightConstant),
             
             
         ])
-        
     }
     
 }
