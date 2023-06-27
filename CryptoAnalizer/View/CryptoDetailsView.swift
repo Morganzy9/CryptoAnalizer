@@ -46,7 +46,7 @@ class CryptoDetailsView: UIView {
         return lbl
     }()
     
-    let coingeckoRank: UILabel = {
+    let coingeckoRankLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.boldSystemFont(ofSize: 20)
@@ -54,7 +54,7 @@ class CryptoDetailsView: UIView {
         return lbl
     }()
     
-    let liquidityScore: UILabel = {
+    let liquidityScoreLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.boldSystemFont(ofSize: 20)
@@ -62,7 +62,7 @@ class CryptoDetailsView: UIView {
         return lbl
     }()
     
-    let publicInterestScore: UILabel = {
+    let publicInterestScoreLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.boldSystemFont(ofSize: 20)
@@ -70,7 +70,7 @@ class CryptoDetailsView: UIView {
         return lbl
     }()
     
-    let developerScore: UILabel = {
+    let developerScoreLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.boldSystemFont(ofSize: 20)
@@ -78,7 +78,7 @@ class CryptoDetailsView: UIView {
         return lbl
     }()
     
-    let coingeckoScore: UILabel = {
+    let coingeckoScoreLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.boldSystemFont(ofSize: 20)
@@ -86,7 +86,7 @@ class CryptoDetailsView: UIView {
         return lbl
     }()
     
-    let communityScore: UILabel = {
+    let communityScoreLabel: UILabel = {
         let lbl = UILabel()
         lbl.translatesAutoresizingMaskIntoConstraints = false
         lbl.font = UIFont.boldSystemFont(ofSize: 20)
@@ -119,7 +119,12 @@ class CryptoDetailsView: UIView {
         addSubview(symbolLabel)
         addSubview(watchlistPortfolioUsersLabel)
         addSubview(marketCapRankLabel)
-        addSubview(coingeckoRank)
+        addSubview(coingeckoRankLabel)
+        addSubview(liquidityScoreLabel)
+        addSubview(publicInterestScoreLabel)
+        addSubview(developerScoreLabel)
+        addSubview(coingeckoScoreLabel)
+        addSubview(communityScoreLabel)
         
 //        MARK: - Constraints
         
@@ -160,14 +165,54 @@ class CryptoDetailsView: UIView {
             marketCapRankLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
             marketCapRankLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             marketCapRankLabel.heightAnchor.constraint(equalToConstant: heightConstant),
-            marketCapRankLabel.bottomAnchor.constraint(equalTo: coingeckoRank.topAnchor),
+            marketCapRankLabel.bottomAnchor.constraint(equalTo: coingeckoRankLabel.topAnchor),
             
 //            coingeckoRank label
             
-            coingeckoRank.topAnchor.constraint(equalTo: marketCapRankLabel.bottomAnchor),
-            coingeckoRank.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
-            coingeckoRank.trailingAnchor.constraint(equalTo: trailingAnchor),
-            coingeckoRank.heightAnchor.constraint(equalToConstant: heightConstant),
+            coingeckoRankLabel.topAnchor.constraint(equalTo: marketCapRankLabel.bottomAnchor),
+            coingeckoRankLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            coingeckoRankLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            coingeckoRankLabel.bottomAnchor.constraint(equalTo: liquidityScoreLabel.topAnchor),
+            coingeckoRankLabel.heightAnchor.constraint(equalToConstant: heightConstant),
+            
+//            liquidityScore
+            
+            liquidityScoreLabel.topAnchor.constraint(equalTo: coingeckoRankLabel.bottomAnchor),
+            liquidityScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            liquidityScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            liquidityScoreLabel.bottomAnchor.constraint(equalTo: publicInterestScoreLabel.topAnchor),
+            liquidityScoreLabel.heightAnchor.constraint(equalToConstant: heightConstant),
+            
+//            publicInterestScore
+            
+            publicInterestScoreLabel.topAnchor.constraint(equalTo: liquidityScoreLabel.bottomAnchor),
+            publicInterestScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            publicInterestScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            publicInterestScoreLabel.bottomAnchor.constraint(equalTo: developerScoreLabel.topAnchor),
+            publicInterestScoreLabel.heightAnchor.constraint(equalToConstant: heightConstant),
+            
+//            developerScore
+            
+            developerScoreLabel.topAnchor.constraint(equalTo: publicInterestScoreLabel.bottomAnchor),
+            developerScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            developerScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            developerScoreLabel.bottomAnchor.constraint(equalTo: coingeckoScoreLabel.topAnchor),
+            developerScoreLabel.heightAnchor.constraint(equalToConstant: heightConstant),
+            
+//          coingeckoScore
+            
+            coingeckoScoreLabel.topAnchor.constraint(equalTo: developerScoreLabel.bottomAnchor),
+            coingeckoScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            coingeckoScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            coingeckoScoreLabel.bottomAnchor.constraint(equalTo: communityScoreLabel.topAnchor),
+            coingeckoScoreLabel.heightAnchor.constraint(equalToConstant: heightConstant),
+            
+//            communityScore
+            
+            communityScoreLabel.topAnchor.constraint(equalTo: coingeckoScoreLabel.bottomAnchor),
+            communityScoreLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: leadingAnchorConstant),
+            communityScoreLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            communityScoreLabel.heightAnchor.constraint(equalToConstant: heightConstant)
             
             
         ])
