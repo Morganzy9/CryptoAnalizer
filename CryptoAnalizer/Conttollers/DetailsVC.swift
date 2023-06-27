@@ -129,6 +129,14 @@ class DetailsVC: UIViewController {
             return
         }
         
+        guard let describtionText = coinDetailed?.description else {
+        
+            print("Error in describtionView")
+            
+            return
+        }
+        
+        
         //        Image
         
         let crpytoApi = CryptoAPI()
@@ -178,6 +186,7 @@ class DetailsVC: UIViewController {
         cryptoDetailsView.communityScoreLabel.text = "Community Score: \(communityScore)"
         cryptoDetailsView.communityScoreLabel.changePartOfTextColor(fullText: "Community Score: \(communityScore)", changeText: String(communityScore))
         
+        cryptoDetailsView.describtionView.text = describtionText.en
         
         
     }
